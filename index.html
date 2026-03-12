@@ -5,11 +5,12 @@
 <title>Omonatim</title>
 
 <style>
+
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
+background:linear-gradient(135deg,#ffd6e7,#ccefff,#ffffff);
+color:#333;
 }
 
 /* LOGIN */
@@ -22,17 +23,17 @@ height:100%;
 display:flex;
 justify-content:center;
 align-items:center;
-background:#020617;
+background:linear-gradient(135deg,#ffd6e7,#ccefff);
 z-index:10;
 }
 
 .login-box{
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.6);
 backdrop-filter:blur(10px);
 padding:40px;
 border-radius:20px;
 text-align:center;
-box-shadow:0 0 40px rgba(0,0,0,0.5);
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
 }
 
 .login-box input{
@@ -46,8 +47,8 @@ margin-top:10px;
 margin-top:10px;
 padding:10px 20px;
 border:none;
-border-radius:10px;
-background:#38bdf8;
+border-radius:20px;
+background:#ff8fc7;
 color:white;
 cursor:pointer;
 }
@@ -59,15 +60,17 @@ padding:40px 20px;
 }
 
 header h1{
-font-size:40px;
+font-size:42px;
+color:#ff5fa2;
 letter-spacing:3px;
 }
 
 /* NAV */
 nav{
 display:flex;
+flex-wrap:wrap;
 justify-content:center;
-gap:20px;
+gap:15px;
 margin-bottom:30px;
 }
 
@@ -75,9 +78,10 @@ nav button{
 padding:10px 20px;
 border:none;
 border-radius:20px;
-background:#0ea5e9;
+background:linear-gradient(135deg,#ffb6d9,#8edcff);
 color:white;
 cursor:pointer;
+font-weight:bold;
 }
 
 /* GRID */
@@ -91,7 +95,7 @@ padding:20px;
 .grid img,.grid video{
 width:100%;
 border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* MEMORIES */
@@ -102,17 +106,23 @@ margin:auto;
 }
 
 .memory{
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.6);
 padding:15px;
 margin-bottom:15px;
 border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* SECRET PAGE */
+/* SECRET */
 #secret{
 display:none;
 padding:40px;
 text-align:center;
+}
+
+audio{
+width:100%;
+margin-top:10px;
 }
 
 </style>
@@ -139,6 +149,7 @@ text-align:center;
 <nav>
 <button onclick="showSection('photos')">📷 Rasmlar</button>
 <button onclick="showSection('videos')">🎥 Videolar</button>
+<button onclick="showSection('voices')">🎤 Ovozlar</button>
 <button onclick="showSection('memories')">📝 Xotiralar</button>
 <button onclick="showSection('secret')">🔒 Maxfiy</button>
 </nav>
@@ -162,6 +173,21 @@ text-align:center;
 <video controls src="video3.mp4"></video>
 <video controls src="video4.mp4"></video>
 <video controls src="video5.mp4"></video>
+
+</section>
+
+<!-- VOICES -->
+<section id="voices" class="memories" style="display:none">
+
+<div class="memory">
+<p>Bizning birinchi ovozli xotiramiz</p>
+<audio controls src="voice1.mp3"></audio>
+</div>
+
+<div class="memory">
+<p>Maxsus esdalik ovozi</p>
+<audio controls src="voice2.mp3"></audio>
+</div>
 
 </section>
 
@@ -196,12 +222,14 @@ alert("Parol noto‘g‘ri")
 }
 
 function showSection(id){
+
 document.getElementById("photos").style.display="none"
 document.getElementById("videos").style.display="none"
+document.getElementById("voices").style.display="none"
 document.getElementById("memories").style.display="none"
 document.getElementById("secret").style.display="none"
-
 document.getElementById(id).style.display="block"
+
 }
 
 </script>
